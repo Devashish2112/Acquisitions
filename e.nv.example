@@ -1,0 +1,7 @@
+#Server Congiguration
+PORT=3000
+MODE_ENV=development
+LOG_LEVEL=info
+
+#Database Configuration
+DATABASE_URL=
