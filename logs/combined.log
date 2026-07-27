@@ -30,3 +30,11 @@
 {"level":"info","message":"::1 - - [25/Jul/2026:20:01:50 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 500 1442 \"-\" \"PostmanRuntime/7.53.0\"","service":"acquisitions-api","timestamp":"2026-07-25T20:01:50.624Z"}
 {"level":"info","message":"User registered successfully: admin@gmail.com","service":"acquisitions-api","timestamp":"2026-07-25T20:02:16.967Z"}
 {"level":"info","message":"::1 - - [25/Jul/2026:20:02:16 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 114 \"-\" \"PostmanRuntime/7.53.0\"","service":"acquisitions-api","timestamp":"2026-07-25T20:02:16.970Z"}
+{"level":"info","message":"::1 - - [27/Jul/2026:15:44:45 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 31 \"-\" \"PostmanRuntime/7.53.0\"","service":"acquisitions-api","timestamp":"2026-07-27T15:44:45.467Z"}
+{"level":"info","message":"::1 - - [27/Jul/2026:15:45:14 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 32 \"-\" \"PostmanRuntime/7.53.0\"","service":"acquisitions-api","timestamp":"2026-07-27T15:45:14.757Z"}
+{"level":"info","message":"::1 - - [27/Jul/2026:15:48:53 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 31 \"-\" \"PostmanRuntime/7.53.0\"","service":"acquisitions-api","timestamp":"2026-07-27T15:48:53.038Z"}
+{"level":"info","message":"::1 - - [27/Jul/2026:15:50:34 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 31 \"-\" \"PostmanRuntime/7.53.0\"","service":"acquisitions-api","timestamp":"2026-07-27T15:50:34.058Z"}
+{"level":"info","message":"::1 - - [27/Jul/2026:15:51:08 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 31 \"-\" \"PostmanRuntime/7.53.0\"","service":"acquisitions-api","timestamp":"2026-07-27T15:51:08.890Z"}
+{"level":"info","message":"User authenticated successfully: admin@gmail.com","service":"acquisitions-api","timestamp":"2026-07-27T15:55:31.869Z"}
+{"level":"info","message":"User signed in successfully: admin@gmail.com","service":"acquisitions-api","timestamp":"2026-07-27T15:55:31.872Z"}
+{"level":"info","message":"::1 - - [27/Jul/2026:15:55:31 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 113 \"-\" \"PostmanRuntime/7.53.0\"","service":"acquisitions-api","timestamp":"2026-07-27T15:55:31.874Z"}
