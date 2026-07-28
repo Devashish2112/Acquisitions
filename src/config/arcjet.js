@@ -1,3 +1,9 @@
+import { webcrypto } from 'node:crypto';
+
+if (!globalThis.crypto) {
+  globalThis.crypto = webcrypto;
+}
+
 import arcjet, { shield, detectBot, slidingWindow } from '@arcjet/node';
 
 const aj = arcjet({

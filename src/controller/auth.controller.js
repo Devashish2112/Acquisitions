@@ -42,9 +42,9 @@ export const signup = async (req, res, next) => {
     logger.error('Error in signup:', e);
 
     if (e.message === 'User with this email already exists') {
-      res.status(409).json({ error: 'Email already exist' });
+      return res.status(409).json({ error: 'Email already exist' });
     }
-    next(e);
+    return next(e);
   }
 };
 
@@ -85,11 +85,9 @@ export const signin = async (req, res, next) => {
     logger.error('Error in signin:', e);
 
     if (e.message === 'Invalid email or password') {
-      res.status(401).json({ error: 'Invalid email or password' });
-    } else {
-      res.status(500).json({ error: 'Internal server error' });
+      return res.status(401).json({ error: 'Invalid email or password' });
     }
-    next(e);
+    return next(e);
   }
 };
 
@@ -100,7 +98,6 @@ export const signout = async (req, res, next) => {
     res.status(200).json({ message: 'User signed out successfully' });
   } catch (e) {
     logger.error('Error in signout:', e);
-    res.status(500).json({ error: 'Internal server error' });
-    next(e);
+    return next(e);
   }
 };

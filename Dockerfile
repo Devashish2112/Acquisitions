@@ -1,7 +1,7 @@
 # Multi-stage Dockerfile for Acquisitions Node.js application
 
 # 1. Base stage - install dependencies and copy codebase
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # Set working directory
 WORKDIR /app
