@@ -1,0 +1,69 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests
+        id: test_step
+        env:
+          NODE_ENV: test
+          NODE_OPTIONS: --experimental-vm-modules
+          DATABASE_URL: postgres://neon:npg@localhost:5432/neondb_test
+        run: npm test
+        continue-on-error: true
+
+      - name: Annotate Test Failures
+        if: steps.test_step.outcome == 'failure'
+        run: |
+          echo "::error title=Test Failures Encountered::One or more automated tests failed during execution. Please check the logs and run 'npm test' locally."
+
+      - name: Generate Step Summary
+        if: always()
+        run: |
+          echo "### 🧪 Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.test_step.outcome }}" == "success" ]; then
+            echo "✅ **Status:** All tests passed successfully!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status:** Tests failed!" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -d "coverage" ]; then
+            echo "📊 **Coverage Artifact:** Code coverage report generated and uploaded." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload Coverage Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 30
+
+      - name: Fail if tests failed
+        if: steps.test_step.outcome == 'failure'
+        run: exit 1
