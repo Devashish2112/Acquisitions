@@ -27,7 +27,6 @@ services:
       - 8.8.8.8
       - 1.1.1.1
 
-
   # Node.js Application Service (Development Target)
   app:
     build:
